@@ -24,13 +24,27 @@ gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.1.1'
+gem 'sprockets-rails'
+
+gem 'listen'
+gem 'active_model_serializers'
+gem 'dotenv'
+gem 'dotenv-rails'
+gem 'jquery-rails'
+gem 'rails_12factor'
+gem 'rest-client'
+gem 'sendgrid-ruby'
+gem 'simplecov'
+
+group :test do
+  gem 'coveralls', require: false
+end
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_bot'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end

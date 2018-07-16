@@ -25,6 +25,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.1.1'
 gem 'sprockets-rails'
+gem 'devise'
 
 gem 'listen'
 gem 'active_model_serializers'

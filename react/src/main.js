@@ -1,7 +1,10 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TrucksList from './components/TrucksList';
 
 document.addEventListener('DOMContentLoaded', () => {
-      ReactDOM.render( < h1 > Boo yaa < /h1>, document.getElementById('app'));
+      ReactDOM.render( 
+        <TrucksList />, 
+        document.getElementById('app'));
       })

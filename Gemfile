@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.1.1'
 gem 'sprockets-rails'
 gem 'devise'
-
+gem 'jquery-rails'
 gem 'listen'
 gem 'active_model_serializers'
 gem 'dotenv'

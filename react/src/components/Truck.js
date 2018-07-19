@@ -7,16 +7,16 @@ class Truck extends Component {
 
   render() {
     return ( 
-      <div className = "table-card">
-        <a href = {`/trucks/${this.props.id}`} >
-          <p className = "crop" >
-            <img src = {this.props.photo}/> 
-          </p> 
-          <h2>{ this.props.name} </h2> 
-          <h3>{this.props.location}</h3> 
-          <p>{this.props.website}</p> 
-        </a> 
-      </div>
+    <div className = "table-card" >
+      <a href = {`/trucks/${this.props.id}`} >
+        <p className="crop">
+          <img src = {this.props.photo}/>
+        </p>
+        <h2>{ this.props.name} </h2> 
+        <h3>{this.props.location}</h3> 
+        <p>{this.props.website}</p> 
+      </a>
+    </div>
     )
   }
 }

@@ -124,14 +124,14 @@ class TrucksList extends Component {
       onChange = {this.updateSearch}
       className = "searchBar" 
       />
-      <div className = "expandable" >
-        <div className = "cards-container" >
-            <div className = "table-cards" > 
-             {finalTrucks} 
-            </div> 
-          </div> 
-        </div> 
-        <div className = "pagination" > 
+      <div className="expandable">
+          <div className="cards-container">
+            <div className="table-cards">
+              {finalTrucks} 
+            </div>
+          </div>
+      </div>
+        <div className="pagination"> 
           {renderPageNumbers} 
         </div> 
       </div>

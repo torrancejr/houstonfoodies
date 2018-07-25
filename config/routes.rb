@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :truck
+    resources :trucks
     resources :users
   end
 
@@ -24,4 +24,3 @@ Rails.application.routes.draw do
     resources :reviews
   end
 end
-

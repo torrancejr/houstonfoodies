@@ -17,7 +17,7 @@ class TrucksController < ApplicationController
   def create
     @truck = Truck.new(truck_params)
     if @truck.save
-      redirect_to venue_path(@truck)
+      redirect_to truck_path(@truck)
       flash[:notice]="Successfully created venue"
     else
       flash[:notice] = @truck.errors.full_messages.to_sentence

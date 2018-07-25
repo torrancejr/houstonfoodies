@@ -1,0 +1,20 @@
+<h2>Review Form for <%= @truck.name %></h2>
+<div class="expandable">
+  <div class="cards-container">
+    <div class="table-cards">
+      <%= form_for [@truck, @review] do |f| %>
+      <div class="field">
+        <%= f.label :rating %>
+        <%= f.text_field :rating %>
+      </div>
+      <div class="field">
+        <%= f.label :body, "Body" %>
+        <%= f.text_area :body %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Add Review" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

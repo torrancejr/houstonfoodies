@@ -1,0 +1,17 @@
+<h1> Create Truck </h1>
+
+<%= form_for @truck do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :location %>
+  <%= f.text_area :location %>
+
+  <%= f.label :website %>
+  <%= f.text_area :website %>
+
+  <%= f.label :photo %>
+  <%= f.text_area :photo %>
+
+  <%= f.submit "Add Truck" %>
+<% end %>

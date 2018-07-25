@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180716200319) do
+ActiveRecord::Schema.define(version: 20180725170735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating", null: false
+    t.string "body"
+    t.integer "user_id", null: false
+    t.integer "truck_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "trucks", force: :cascade do |t|
     t.string "name", null: false
@@ -38,8 +47,17 @@ ActiveRecord::Schema.define(version: 20180716200319) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.boolean "upvote", null: false
+    t.integer "review_id", null: false
+    t.integer "user_id", null: false
+    t.index ["review_id", "user_id"], name: "index_votes_on_review_id_and_user_id", unique: true
   end
 
 end

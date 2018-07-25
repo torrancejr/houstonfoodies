@@ -1,0 +1,41 @@
+<div class="cards-container">
+  <div class="table-card">
+    <h3><%= @truck.name %></h3></br>
+    <p> Address: <%= @truck.location %></p></br>
+    <p> <a href="<%= @truck.website %>">Yelp for <%=@truck.name%></a></p></br>
+    <% if current_user.try(:admin?) %>
+      <%= link_to "Delete Truck", admin_truck_path(@truck), method: :delete %></br>
+    <% end %>
+    <img src="<%=@truck.photo%>">
+    </br>
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <i class="material-icons">account_circle</i><h5> <%= review.user.first_name %></h5></br>
+        <% if review.user.profile_photo.present? %>
+          <p class="profile-picture"><%= image_tag review.user.profile_photo.url, size: "60x60" %></p>
+        <% end %>
+        Rating: <%= review.rating %></br></br>
+        <%= review.body %></br></br>
+        <%= review.created_at.strftime("%B %d %Y") %></br>
+        <p id="score_<%=review.id%>">
+          Score: <%= review.score %></br>
+        <div>
+          <button id="<%=review.id%>" class="upvote">
+            <i class="material-icons md-18 black6000">thumb_up</i>
+          </button>
+          <button id="<%=review.id%>" class="downvote">
+            <i class="material-icons md-18 green6000">thumb_down</i>
+          </button>
+        </div>
+        <% if review.user == current_user || current_user.try(:admin?) %>
+          </br>
+          <%= link_to "Delete Review", truck_review_path(review.truck, review), method: :delete %>
+          </br>
+          <%= link_to "Edit Review", edit_truck_review_path(review.truck, review) %>
+          </br>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to "Add a Review",  new_truck_review_path(@truck), class: "button"%>
+  </div>
+</div>

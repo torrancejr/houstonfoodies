@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gaegu|Indie+Flower" rel="stylesheet">
     <title><%= content_for?(:title) ? yield(:title) : "Houston Food Trucks" %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -14,20 +14,49 @@
   </head>
 
   <body>
-  <%= link_to "HOUSTON FOOD TRUCKS", root_path %>
-  <li>
-    <%= link_to "Sign In", new_user_session_path %>
-  </li>
-  <li>
-    <%= link_to "Sign Up", new_user_registration_path %>
-  </li>
-  <li>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-  </li>
-    <% flash.each do |key, value| %>
+ <nav class="navbar navbar-default navbar-static-top">
+<ul class="container-fluid">
+  <h1 class="header">
+    <%= link_to "HOUSTON FOOD TRUCKS", root_path %>
+  </h1>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <% if current_user.admin? %>
+          <li>
+            <%= link_to "View Users", admin_users_path, class: "btn btndefault btn-primary" %>
+          </li>
+          <li>
+            <%= link_to "Create Truck", new_truck_path, class: "btn-info btn-sm navbar-btn" %>
+          </li>
+          <% end %>
+          <li>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn-info btn-sm btn-primary navbar-btn" %>
+          </li>
+          <li>
+            <img src="<%=current_user.profile_photo%>">
+          </li>
+          <li>
+            <%= link_to "Edit/Delete Profile", edit_user_registration_path, class: "btn-info btn-sm btn-primary navbar-btn" %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to "Sign In", new_user_session_path, class: "btn-info bt-sm btn-primary navbar-btn" %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn-info btn-sm btn-primary navbar-btn" %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      </div>
+    </nav>
+     
+        <% flash.each do |key, value| %>
           <%= value %>
         <% end %>
 
         <%= yield %>
+  
+    
   </body>
 </html>
